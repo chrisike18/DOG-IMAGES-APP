@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample 2 - Dog Api</title>
+    <style>
+        body {
+            background-color: chocolate;
+            background-image: url(dog\ api.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+
+        .box {
+            width: 300px;
+            margin: 10% auto 0;
+            text-align: center;
+            border: 3px solid blue;
+            border-radius: 20px;
+            box-shadow: 5px 5px 6px 0 green;
+        }
+
+        .box>img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            /* margin-bottom: 30px; */
+            border-radius: 20px;
+
+        }
+
+        .btn {
+            margin-left: 48%;
+
+            margin-top: 20px;
+        }
+
+        .text{
+            text-align: center;
+            
+            color: rgb(1, 11, 1);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1 class="text">DOG IMAGES APP</h1>
+
+    <div class="box">
+        <img src="./dice.jpeg" alt="" class="image">
+        <br>
+        <!-- <button class="btn">Next</button> -->
+    </div>
+    <button class="btn">Next</button>
+    <script>
+        let img = document.querySelector(".image")
+        let button = document.querySelector(".btn")
+
+        button.addEventListener("click", () => {
+            // run the fetch function and display the img url
+            fetch("https://dog.ceo/api/breeds/image/random")
+                .then((res) => res.json())
+                .then((data) => {
+                    img.src = data.message
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        })
+
+
+    </script>
+</body>
+
+</html>
